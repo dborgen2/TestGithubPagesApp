@@ -1,0 +1,33 @@
+name: Patch sample-data files on GitHub Pages
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - 'TestGithubPagesApp/wwwroot/sample-data/**'
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source branch
+        uses: actions/checkout@v4
+
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages-branch
+
+      - name: Copy updated sample-data files
+        run: |
+          cp -r TestGithubPagesApp/wwwroot/sample-data/* gh-pages-branch/sample-data/
+
+      - name: Commit and push changes
+        run: |
+          cd gh-pages-branch
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sample-data/
+          git commit -m "Patch sample-data files from main"
+          git push origin gh-pages
