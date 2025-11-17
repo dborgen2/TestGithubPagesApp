@@ -5,5 +5,9 @@ Some test with some *emphasis* and **some bold text**
 
 1. Ordered list item 1
 2. Ordered list item 2
-  1. Some nest
-  2. Some other nest
+
+| Header 1 | Header 2 | Header 3 |
+|---|:---:|---:|
+| Left-aligned text | Centered text | Right-aligned text |
+| Row 2, Col 1 | Row 2, Col 2 | Row 2, Col 3 |
+| Another row | More data | Final cell |
