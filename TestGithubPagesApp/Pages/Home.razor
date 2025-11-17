@@ -17,7 +17,9 @@
 
     protected override async Task OnInitializedAsync()
     {
+        var pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
+
         string markdown = await Http.GetStringAsync($"sample-data/example.md?v={DateTime.UtcNow.Ticks}");
-        htmlContent = Markdown.ToHtml(markdown); // Markdig does the conversion
+        htmlContent = Markdown.ToHtml(markdown, pipeline); // Markdig does the conversion
     }
 }
