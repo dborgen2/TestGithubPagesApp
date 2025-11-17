@@ -5,6 +5,7 @@ on:
     branches: [ master ]
     paths:
       - 'TestGithubPagesApp/**'
+      - '!gh_pages/wwwroot/sample-data/**'
 
 permissions:
   contents: read
