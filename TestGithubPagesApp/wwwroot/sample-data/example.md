@@ -1,5 +1,5 @@
 # Test
-Some test with no emphasis and **some bold text**
+Some test with some *emphasis* and **some bold text**
 * Unordered list 1
 * Unordered list 2
 
